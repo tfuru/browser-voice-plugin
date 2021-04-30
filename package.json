@@ -21,7 +21,7 @@
     "SpVoice"
   ],
   "author": "Chenxi_Liu",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "webpack": "^5.36.1",
     "webpack-cli": "^4.6.0"

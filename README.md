@@ -2,6 +2,8 @@
 
 > A minimalist speech broadcast library based on JavaScript V8.
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
+
 ### Overall
 
 SpeechJS is used to perform the basic functions using three internal methods (init, options, sounder) and four external interfaces (speak, pause, resume, and stop). IeSounder and OtherSounder are concrete implementations of SpeechJS that are compatible with different browsers.
