@@ -9,12 +9,11 @@
   },
   "scripts": {
     "test": "mocha",
-    "build": "webpack",
-    "prepublish": "webpack"
+    "build": "webpack"
   },
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/Chenxi-Lau/speechJs"
   },
   "keywords": [
     "web",
