@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="../dist/speechJs.min.js"></script>
+  <title>语音播报测试</title>
+</head>
+
+<body>
+  <div>
+    <input id="message" type="text">
+    <button type="button" onclick="handleClick()">播放语音</button>
+  </div>
+  <script type="text/javascript">
+    const hiSounder = new SpeechJs()
+    /**
+     * 播放语音
+     */
+    function speak (message) {
+      hiSounder.speak(message)
+    }
+    /**
+     * 暂停播放
+     */
+    function pause () {
+      hiSounder.pause()
+    }
+    /**
+     * 继续播放
+     */
+    function resume () {
+      hiSounder.resume()
+    }
+    /**
+     * 停止播放
+     */
+    function stop () {
+      hiSounder.stop()
+    }
+
+    function handleClick () {
+      const message = document.getElementById('message').value
+      speak(message)
+    }
+  </script>
+</body>
+
+</html>

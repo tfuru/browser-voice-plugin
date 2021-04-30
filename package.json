@@ -1,0 +1,30 @@
+{
+  "name": "speechjs",
+  "version": "1.0.0",
+  "description": "A minimalist speech broadcast library based on JavaScript V8",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha",
+    "build": "webpack",
+    "prepublish": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "keywords": [
+    "web",
+    "speechSynthesis",
+    "SpVoice"
+  ],
+  "author": "Chenxi_Liu",
+  "license": "ISC",
+  "dependencies": {
+    "webpack": "^5.36.1",
+    "webpack-cli": "^4.6.0"
+  }
+}
