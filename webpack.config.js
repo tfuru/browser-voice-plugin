@@ -3,8 +3,8 @@ const TerserPlugin = require('terser-webpack-plugin') // 引入压缩插件，we
 module.exports = {
   mode: 'production',
   entry: {
-    'speech-js-me': './lib/index.js',
-    'speech-js-me.min': './lib/index.js'
+    'speech-js': './lib/index.js',
+    'speech-js.min': './lib/index.js'
   },
   output: {
     filename: '[name].js',
