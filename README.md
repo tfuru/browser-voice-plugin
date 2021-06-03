@@ -1,4 +1,4 @@
-# SpeechJs
+# Speech-js-me
 
 > A minimalist speech broadcast library based on JavaScript V8.
 
@@ -6,7 +6,7 @@
 
 ### Overall
 
-SpeechJS supports speaking text in the browser side, as well as the ability to pause, resume, and stop speaking. Currently, SpeechJS only supports Internet Explorer (Sapi.Spvoice library), Chrome, and Firefox (SpeechSynthesisUtterance Object).
+Speech-js-me supports speaking text in the browser side, as well as the ability to pause, resume, and stop speaking. Currently, speech-js-me only supports Internet Explorer (Sapi.Spvoice library), Chrome, and Firefox (SpeechSynthesisUtterance Object).
 
 ### Options
 
@@ -33,7 +33,7 @@ HTML
 CLI
 
 ```javascript
-import hiSounder from 'SpeechJs';
+import SpeechJs from 'speech-js-me';
 const hiSounder = new SpeechJs();
 hiSounder.speak('我爱你，中国');
 ```

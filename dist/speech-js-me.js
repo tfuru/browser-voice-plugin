@@ -39,8 +39,29 @@ __webpack_require__.d(__webpack_exports__, {
   "default": () => (/* binding */ lib)
 });
 
+;// CONCATENATED MODULE: ./lib/speechOption.js
+// 语音播报的默认配置
+const speechOption = {
+  flags: {
+    ASYNC_SPEAK: 1,
+    SYNC_SPEAK: 2,
+    PURGE_BEFORE_SPEAK: 3
+  },
+  volume: {
+    LOW: 'low',
+    MIDDLE: 'middle ',
+    HIGHT: 'hight'
+  },
+  rate: {
+    SLOW: 'slow',
+    NORMAL: 'normal ',
+    FAST: 'fast'
+  }
+}
+
 ;// CONCATENATED MODULE: ./lib/ieSounder.js
 // IE浏览器的播放方法
+
 class IeSounder {
   // 私有变量
   #sounder =null
@@ -72,26 +93,6 @@ class IeSounder {
   }
 }
 
-;// CONCATENATED MODULE: ./lib/speechOption.js
-// 语音播报的默认配置
-const speechOption_speechOption = {
-  flags: {
-    ASYNC_SPEAK: 1,
-    SYNC_SPEAK: 2,
-    PURGE_BEFORE_SPEAK: 3
-  },
-  volume: {
-    LOW: 'low',
-    MIDDLE: 'middle ',
-    HIGHT: 'hight'
-  },
-  rate: {
-    SLOW: 'slow',
-    NORMAL: 'normal ',
-    FAST: 'fast'
-  }
-}
-
 ;// CONCATENATED MODULE: ./lib/otherSounder.js
 // Chrome 和 Safari 浏览器的播放方法
 
@@ -103,10 +104,10 @@ class OtherSounder {
   init () {
     const options = this.options
     this.#sounder = new SpeechSynthesisUtterance()
-    this.#sounder.volume = options.volume == speechOption_speechOption.volume.LOW ? 0.2
-      : (options.volume == speechOption_speechOption.volume.HIGHT ? 1 : 0.5)
-    this.#sounder.rate = options.rate == speechOption_speechOption.rate.SLOW ? 0.1
-      : (options.rate == speechOption_speechOption.rate.FAST ? 5 : 1)
+    this.#sounder.volume = options.volume == speechOption.volume.LOW ? 0.2
+      : (options.volume == speechOption.volume.HIGHT ? 1 : 0.5)
+    this.#sounder.rate = options.rate == speechOption.rate.SLOW ? 0.1
+      : (options.rate == speechOption.rate.FAST ? 5 : 1)
   }
   speak (message) {
     this.#sounder.text = message
@@ -153,16 +154,16 @@ class SpeechJs {
     if (window._$sounder) {
       throw new Error('当前页面只能初始化一个Sounder对象')
     }
-    const options = this.options || {
-      volume: speechOption_speechOption.volume.HIGHT,
-      rate: speechOption_speechOption.rate.NORMAL,
-      flags: speechOption_speechOption.flags.PURGE_BEFORE_SPEAK
-    }
-
-    if (!(typeof options === 'object' && !Array.isArray(options))) {
+    if (!(typeof this.options === 'object' &&
+          !Array.isArray(this.options))) {
       throw new Error('不是有效的参数对象')
     }
-
+    const defaultOptions = {
+      volume: speechOption.volume.HIGHT,
+      rate: speechOption.rate.NORMAL,
+      flags: speechOption.flags.PURGE_BEFORE_SPEAK
+    }
+    const options = Object.assign(defaultOptions, this.options)
     const myBrowser = this.#myBrowser()
     if (myBrowser === 'IE') {
       this.#sounder = new IeSounder(options)
@@ -177,7 +178,7 @@ class SpeechJs {
 
   constructor (options) {
     this.options = options
-    this.#init()
+    this.#init(options)
   }
 
   // 外部暴露的方法

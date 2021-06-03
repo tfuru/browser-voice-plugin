@@ -1,5 +1,5 @@
 {
-  "name": "speechjs",
+  "name": "speech-js-me",
   "version": "1.0.0",
   "description": "A minimalist speech broadcast library based on JavaScript V8",
   "main": "index.js",
