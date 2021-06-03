@@ -5,17 +5,24 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="../dist/speechJs.min.js"></script>
+  <!-- 加载SpeechJs的库 -->
+  <script type="text/javascript" src="../dist/speechJs.js"></script>
   <title>语音播报测试</title>
 </head>
 
 <body>
-  <div>
-    <input id="message" type="text">
-    <button type="button" onclick="handleClick()">播放语音</button>
+  <div class="speech-wrapper">
+    <div class="speech-title">
+      <img style="width: 40%" src="../speechjs.png">
+    </div>
+    <div class="speech-input">
+      <input class="" id="message" type="text">
+      <button type="button" onclick="handleClick()">播放</button>
+    </div>
   </div>
   <script type="text/javascript">
     const hiSounder = new SpeechJs()
+
     /**
      * 播放语音
      */
@@ -46,6 +53,60 @@
       speak(message)
     }
   </script>
+  <style>
+    html{
+      width: 100%;
+      height: 100%;
+      position: relative;
+      overflow: hidden;
+    }
+    .speech-wrapper{
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      margin: 0 auto;
+    }
+    .speech-title{
+      width: 100%;
+      text-align: center;
+    }
+    .speech-input{
+      width: 100%;
+      text-align: center;
+    }
+    input{
+      height: 50px;
+      line-height: 50px;
+      border: 1px solid rgba(34,43,95,.79);
+      background: rgba(21,24,68,.5);
+      display: inline-block;
+      width: 300px;
+      color: #fff;
+      box-sizing: border-box;
+      border-radius: 40px;
+      text-align: left;
+      padding: 0 2em;
+      font-size: 18px!important;
+    }
+    input:focus-visible{
+      outline: 0px
+    }
+    button{
+      height: 50px;
+      width: 100px;
+      margin-left: 12px;
+      font-size: 14px;
+      color: #4c4c4c;
+      font-weight: 500;
+      border: 1px solid rgba(34,43,95,.5);
+      border-radius: 26px;
+    }
+    button:hover{
+      cursor: pointer;
+      font-weight: 800;
+      border: 1px solid rgba(34,43,95,1);
+    }
+  </style>
 </body>
 
 </html>

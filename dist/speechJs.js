@@ -4,9 +4,9 @@
 	else if(typeof define === 'function' && define.amd)
 		define([], factory);
 	else if(typeof exports === 'object')
-		exports["speechJs"] = factory();
+		exports["SpeechJs"] = factory();
 	else
-		root["speechJs"] = factory();
+		root["SpeechJs"] = factory();
 })(self, function() {
 return /******/ (() => { // webpackBootstrap
 /******/ 	"use strict";
@@ -72,36 +72,6 @@ class IeSounder {
   }
 }
 
-;// CONCATENATED MODULE: ./lib/otherSounder.js
-// Chrome 和 Safari 浏览器的播放方法
-class OtherSounder {
-  #sounder =null
-  constructor (options) {
-    this.options = options
-  }
-  init () {
-    const options = this.options
-    this.#sounder = new SpeechSynthesisUtterance()
-    this.#sounder.volume = options.volume == speechOption.volume.LOW ? 0.2
-      : (options.volume == speechOption.volume.HIGHT ? 1 : 0.5)
-    this.#sounder.rate = options.rate == speechOption.rate.SLOW ? 0.1
-      : (options.rate == speechOption.rate.FAST ? 5 : 1)
-  }
-  speak (message) {
-    this.#sounder.text = message
-    window.speechSynthesis.speak(this.#sounder)
-  }
-  pause () {
-    window.speechSynthesis.pause()
-  }
-  resume () {
-    window.speechSynthesis.resume()
-  }
-  stop () {
-    window.speechSynthesis.cancel()
-  }
-}
-
 ;// CONCATENATED MODULE: ./lib/speechOption.js
 // 语音播报的默认配置
 const speechOption_speechOption = {
@@ -122,7 +92,36 @@ const speechOption_speechOption = {
   }
 }
 
+;// CONCATENATED MODULE: ./lib/otherSounder.js
+// Chrome 和 Safari 浏览器的播放方法
 
+class OtherSounder {
+  #sounder =null
+  constructor (options) {
+    this.options = options
+  }
+  init () {
+    const options = this.options
+    this.#sounder = new SpeechSynthesisUtterance()
+    this.#sounder.volume = options.volume == speechOption_speechOption.volume.LOW ? 0.2
+      : (options.volume == speechOption_speechOption.volume.HIGHT ? 1 : 0.5)
+    this.#sounder.rate = options.rate == speechOption_speechOption.rate.SLOW ? 0.1
+      : (options.rate == speechOption_speechOption.rate.FAST ? 5 : 1)
+  }
+  speak (message) {
+    this.#sounder.text = message
+    window.speechSynthesis.speak(this.#sounder)
+  }
+  pause () {
+    window.speechSynthesis.pause()
+  }
+  resume () {
+    window.speechSynthesis.resume()
+  }
+  stop () {
+    window.speechSynthesis.cancel()
+  }
+}
 
 ;// CONCATENATED MODULE: ./lib/index.js
 
@@ -133,7 +132,7 @@ class SpeechJs {
   // 私有变量
   #sounder = null
   // 私有方法
-  #myBrowser= () => {
+  #myBrowser = () => {
     const userAgent = navigator.userAgent
     const isOpera = userAgent.indexOf('Opera') > -1
     const isIE = userAgent.indexOf('compatible') > -1 &&
@@ -150,7 +149,7 @@ class SpeechJs {
       return false
     }
   }
-  #init= () => {
+  #init = () => {
     if (window._$sounder) {
       throw new Error('当前页面只能初始化一个Sounder对象')
     }
@@ -159,9 +158,11 @@ class SpeechJs {
       rate: speechOption_speechOption.rate.NORMAL,
       flags: speechOption_speechOption.flags.PURGE_BEFORE_SPEAK
     }
+
     if (!(typeof options === 'object' && !Array.isArray(options))) {
       throw new Error('不是有效的参数对象')
     }
+
     const myBrowser = this.#myBrowser()
     if (myBrowser === 'IE') {
       this.#sounder = new IeSounder(options)

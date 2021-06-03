@@ -6,15 +6,17 @@
 
 ### Overall
 
-SpeechJS is used to perform the basic functions using three internal methods (init, options, sounder) and four external interfaces (speak, pause, resume, and stop). IeSounder and OtherSounder are concrete implementations of SpeechJS that are compatible with different browsers.
+SpeechJS supports speaking text in the browser side, as well as the ability to pause, resume, and stop speaking. Currently, SpeechJS only supports Internet Explorer (Sapi.Spvoice library), Chrome, and Firefox (SpeechSynthesisUtterance Object).
 
-### IeSounder
+### Options
 
-Use Sapi.Spvoice library of windows for speech broadcast.
-
-### OtherSounder
-
-Use the SpeechSynthesisUtterance object for implementation. SpeechSynthesisUtterance is a new HTML5 API for synthesizing specified text into corresponding speech.
+```JavaScript
+const speechOption = {
+  flags: 1/2/3,
+  volume: 'low'/'middle'/'hight',
+  rate: 'slow'/'normal'/'fast'
+}
+```
 
 ### Usage
 
@@ -23,17 +25,17 @@ HTML
 ```html
 <script src="../dist/speechJs.min.js"></script>
 <script type="text/javascript">
-  const hiSounder = new SpeechJs()
-  hiSounder.speak('我爱你，中国')
+  const hiSounder = new SpeechJs();
+  hiSounder.speak('我爱你，中国');
 </script>
 ```
 
 CLI
 
 ```javascript
-import hiSounder from 'SpeechJs'
-const hiSounder = new SpeechJs()
-hiSounder.speak('我爱你，中国')
+import hiSounder from 'SpeechJs';
+const hiSounder = new SpeechJs();
+hiSounder.speak('我爱你，中国');
 ```
 
 ### References
