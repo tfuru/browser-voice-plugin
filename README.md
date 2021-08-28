@@ -1,4 +1,4 @@
-# SpeechJs
+## browser-voice-plugin
 
 > A minimalist speech broadcast library based on JavaScript V8.
 
