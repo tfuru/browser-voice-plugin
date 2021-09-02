@@ -1,7 +1,7 @@
 {
-  "name": "@morning/speech-js",
+  "name": "browser-voice-plugin",
   "version": "1.0.0",
-  "description": "A minimalist speech broadcast library based on JavaScript V8",
+  "description": "A minimalist voice broadcast library based on javaScript v8",
   "main": "index.js",
   "directories": {
     "lib": "lib",
@@ -13,17 +13,46 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/Chenxi-Lau/speechJs"
+    "url": "https://github.com/Chenxi-Lau/browser-voice-plugin"
   },
   "keywords": [
-    "web",
-    "speechSynthesis",
+    "Browser",
+    "SpeechSynthesis",
     "SpVoice"
   ],
   "author": "Chenxi_Liu",
   "license": "MIT",
   "dependencies": {
+    "babel-core": "^7.0.0-bridge.0",
     "webpack": "^5.36.1",
     "webpack-cli": "^4.6.0"
+  },
+  "devDependencies": {
+    "@babel/preset-env": "^7.15.0",
+    "babel-loader": "^7.1.5"
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "es6": true,
+      "node": true
+    },
+    "parserOptions": {
+      "parser": "babel-eslint"
+    },
+    "rules": {
+      "indent": [
+        "error",
+        2,
+        {
+          "ignoredNodes": [
+            "TemplateLiteral"
+          ]
+        }
+      ],
+      "template-curly-spacing": [
+        "off"
+      ]
+    }
   }
 }
