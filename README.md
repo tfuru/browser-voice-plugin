@@ -1,3 +1,12 @@
+<!--
+ * @Author: 刘晨曦 <lcxcsy@126.com>
+ * @Date: 2021-09-01 17:00:06
+ * @LastEditTime: 2021-09-06 14:05:59
+ * @LastEditors: Please set LastEditors
+ * @Description: README
+ * @FilePath: \MyCode\Hikvision\MyGithub\browser-voice-plugin\README.md
+-->
+
 ## browser-voice-plugin
 
 > A minimalist speech broadcast library based on JavaScript V8.
@@ -10,20 +19,34 @@ VoicePlugin supports speaking text in the browser side, as well as the ability t
 
 ### Options
 
-```js
-options = {
-  volume: 0.1 ~ 1
-  rate: 0.1 ~ 10
-  // Chrome
-  lang: '<zh-CN|en-US>'
-  pitch: 0 ~ 2
-}
+For IE, you can set volume (range: 0.1 ~ 1) and rate (range: 0.1 ~ 10)
 
-// default option
+```js
 options = {
   volume: 0.5
   rate: 1
-  // Chrome
+}
+const hiSounder = new VoicePlugin(options);
+```
+
+For Chrome and FireFox, you can set lang (zh-CN or en-US) and pitch (range: 0 ~ 2), such as:
+
+```js
+options = {
+  volume: 0.5
+  rate: 1
+  lang: 'zh-CN'
+  pitch: 1
+}
+const hiSounder = new VoicePlugin(options);
+```
+
+The default option is:
+
+```js
+options = {
+  volume: 0.5
+  rate: 1
   lang: 'zh-CN'
   pitch: 1
 }
@@ -48,6 +71,10 @@ import VoicePlugin from 'browser-voice-plugin';
 const hiSounder = new VoicePlugin();
 hiSounder.speak('我爱你，中国');
 ```
+
+### License
+
+Browser-voice-plugin is licensed under a [MIT License](https://opensource.org/licenses/MIT)
 
 ### References
 
