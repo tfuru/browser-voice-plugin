@@ -1,7 +1,7 @@
 <!--
  * @Author: 刘晨曦 <lcxcsy@126.com>
  * @Date: 2021-09-01 17:00:06
- * @LastEditTime: 2021-09-06 14:05:59
+ * @LastEditTime: 2021-09-08 17:22:09
  * @LastEditors: Please set LastEditors
  * @Description: README
  * @FilePath: \MyCode\Hikvision\MyGithub\browser-voice-plugin\README.md
@@ -23,9 +23,9 @@ For IE, you can set volume (range: 0.1 ~ 1) and rate (range: 0.1 ~ 10)
 
 ```js
 options = {
-  volume: 0.5
+  volume: 0.5,
   rate: 1
-}
+};
 const hiSounder = new VoicePlugin(options);
 ```
 
@@ -33,23 +33,12 @@ For Chrome and FireFox, you can set lang (zh-CN or en-US) and pitch (range: 0 ~ 
 
 ```js
 options = {
-  volume: 0.5
-  rate: 1
-  lang: 'zh-CN'
+  volume: 0.5,
+  rate: 1,
+  lang: 'zh-CN',
   pitch: 1
-}
+};
 const hiSounder = new VoicePlugin(options);
-```
-
-The default option is:
-
-```js
-options = {
-  volume: 0.5
-  rate: 1
-  lang: 'zh-CN'
-  pitch: 1
-}
 ```
 
 ### Usage
